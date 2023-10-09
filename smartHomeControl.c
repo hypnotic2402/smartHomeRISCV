@@ -20,17 +20,17 @@ int main() {
         // Reading from sensors
 
         asm volatile(
-            "and %0, x30 1"
+            "and %0, x30, 1"
             : "=r"(i_alarmSwitch)
         );
 
         asm volatile(
-            "and %0, x30 2"
+            "and %0, x30, 2"
             : "=r"(i_sensorOut)
         );
 
         asm volatile(
-            "and %0, x30 4"
+            "and %0, x30, 4"
             : "=r"(i_sensorIn)
         );
 
