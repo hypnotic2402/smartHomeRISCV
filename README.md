@@ -4,6 +4,10 @@
 
 In this project aims to create a system will intelligently manage power usage within a smart home environment, ensuring that power is conserved when no occupants are detected and providing robust security through a burglar alarm system. Instead of using traditional microcontrollers such as Arduino or Raspberry Pi, We use a custom RISCV based microcontroller that is designed to perform this specific operation.
 
+## Working
+
+Two IR sensors are used at the door of the house. Using these two sensors, we count the number of people inside the house and maintain its count. If there are no people inside, then we cn shut down the lights, fans, and other power consuming appliances. Additionally, there is a burglar alarm present. If this is turned on (via a switch), then any person trying to enter the house will set off the alarm (buzzer). This is also detected using the same sensors.
+
 
 ## C Code
 
