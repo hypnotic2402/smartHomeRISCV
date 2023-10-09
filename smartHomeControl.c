@@ -19,17 +19,17 @@ int main() {
 
         // Reading from sensors
 
-        asm(
+        asm volatile(
             "and %0, x30 1"
             : "=r"(i_alarmSwitch)
         );
 
-        asm(
+        asm volatile(
             "and %0, x30 2"
             : "=r"(i_sensorOut)
         );
 
-        asm(
+        asm volatile(
             "and %0, x30 4"
             : "=r"(i_sensorIn)
         );
@@ -40,7 +40,7 @@ int main() {
             if (i_sensorOut || i_sensorIn){
                 o_alarm = 1;
 
-                asm(
+                asm volatile(
                     "and x30, x30, %0\n\t"
                     "or x30, x30, 8"
                     :
@@ -53,7 +53,7 @@ int main() {
         }
         else{
             o_alarm = 0;
-            asm(
+            asm volatile(
                     "and x30, x30, %0\n\t"
                     "or x30, x30, 0"
                     :
@@ -97,7 +97,7 @@ int main() {
         if (reg_countPeople > 0){
             o_power = 1;
 
-            asm(
+            asm volatile(
                 "and x30, x30, %0\n\t"
                 "or x30, x30, 16"
                 :
@@ -108,7 +108,7 @@ int main() {
         }
         else if (reg_countPeople == 0){
             o_power = 0;
-            asm(
+            asm volatile(
                 "and x30, x30, %0\n\t"
                 "or x30, x30, 0"
                 :
