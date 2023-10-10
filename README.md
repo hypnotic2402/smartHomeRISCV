@@ -251,16 +251,16 @@ Upon running python sript, the output recieved is:
 ```
 Number of different instructions: 11
 List of unique instructions:
-bnez
-addi
-blez
-andi
-ori
 sw
+addi
+bnez
 and
-beqz
-j
+blez
 li
+beqz
 lw
+j
+ori
+andi
 ```
 
