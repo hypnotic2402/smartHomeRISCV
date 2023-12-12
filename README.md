@@ -397,7 +397,87 @@ For given inputs 111 (All devices turned on), we are getting the expected output
 ## Gate Level Simulation (GLS)
 
 Synthesis was performed after passing this through yosys and the obtained synthesized design is tested using GTKwave simulations.
+![yosys](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/e565b631-5e07-4068-ae7b-b2d79ccb9540)
+
+This was done using the following commands in yosys:
+
+```
+read_liberty -lib sky130_fd_sc_hd__tt_025C_1v80_256.lib 
+read_verilog processor.v 
+synth -top wrapper
+dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib 
+abc -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib
+write_verilog synth_test.v
+```
+
+This is an example of the testcase 110 which returns the same expected output.
 
 ![gls](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/ccb2c3ed-a07e-4b61-a7ff-ce7c33d0cfe9)
+![yosys2](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/c782b923-89a9-4621-9e67-5ffdb2dccd14)
 
+## OpenLANE flow
+
+OpenLANE tool was used to generate the RTL to GDSII flow for this design.
+
+Run the follwing in the OpenLANE terminal to run the flow in OpenLANE ('remote' is the name of my directory in the design ):
+
+```
+./flow.tcl -design remote
+```
+Below reports are included in the reports directory.
+
+### Synthesis
+
+The synthesis report obtained :
+
+![synthRep](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/91ae8823-6787-46c4-97e1-4bfc6ae3a26a)
+
+### Floor-Planning
+
+Core Area after FloorPlanning :
+
+
+![coreArFP](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/a20d4a09-ca8e-4672-98f3-4ea1da8f3db9)
+
+Die Area after FloorPlanning:
+![dieArFP](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/0c143592-888c-42ec-9b6f-e578a834c1a2)
+
+
+![fp](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/414431e3-9943-412b-9890-b51af675cc62)
+
+### Placement
+
+![placement](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/40ba83b0-4751-4357-a146-9b0f1b918a5c)
+
+### CTS
+
+![cts1](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/0e9938f6-6912-4450-8b59-d542b208035a)
+
+![cts2](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/079d1274-9191-493b-aa04-1126a73ac37f)
+
+
+![cts3](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/f6471604-1c87-439d-9367-25e992100c94)
+
+
+### Routing
+![rout](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/fa2dbbb2-b71c-4334-8625-69a63857aa94)
+
+![rout2](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/ed918f12-2ca2-4cc0-97bf-70db932822fa)
+
+![rout3](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/84356510-6f08-4fa7-a914-9dbc4fb552c9)
+
+![rout4](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/84440126-8543-4994-aabe-38d4f560e1fe)
+
+
+## Word of Thanks
+
+I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
+
+## Acknoledgement
+
+1. Kunal Ghosh, VSD Corp. Pvt. Ltd.
+2. Mayank Kabra
+3. Aamod BK, Colleague,IIIT B
+4. Yash Mogal, Colleague,IIIT B
+5. Anshul Madurvar, Colleague,IIIT B
 
