@@ -383,3 +383,21 @@ andi
 
 A RISCV based processor and testbench were obtained for the given assembly instructions, using Chipcorn Core Generator. The functionality is checked using simulation on GTKWave.
 
+For given inputs 101 (Only one device (Fan) is switched on), we are getting the expected output of the LED indicator pin and the middle pin turing High.
+![fv101](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/3400ea01-c7b1-40fd-a3ac-a9135b364227)
+
+For given inputs 110 (Only one device (Lights) is switched on), we are getting the expected output of the LED indicator pin and the last pin turing High.
+![fv110](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/c8413fbc-358d-4a91-a7c8-23a4cf633dab)
+
+For given inputs 111 (All devices turned on), we are getting the expected output of the LED indicator and all the pins turing HIGH.
+
+![fv000](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/4d017181-baac-4015-8fc0-dcdb8a808b38)
+
+
+## Gate Level Simulation (GLS)
+
+Synthesis was performed after passing this through yosys and the obtained synthesized design is tested using GTKwave simulations.
+
+![gls](https://github.com/hypnotic2402/smartHomeRISCV/assets/75616591/ccb2c3ed-a07e-4b61-a7ff-ce7c33d0cfe9)
+
+
